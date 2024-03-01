@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+<!--        Parent Menu -->
+        <add id="CWSPS154_CustomModule::cwsps_menu" title="CWSPS" translate="title"
+             module="CWSPS154_CustomModule" sortOrder="20" resource="CWSPS154_CustomModule::custom_module"/>
+<!--        Group 1-->
+        <add id="CWSPS154_CustomModule::custom_module_menu" title="Custom Module Menu" translate="title"
+             parent="CWSPS154_CustomModule::cwsps_menu" module="CWSPS154_CustomModule" sortOrder="20"
+             resource="CWSPS154_CustomModule::custom_module"/>
+        <add id="CWSPS154_CustomModule::custom" title="Custom Menu" translate="title" module="CWSPS154_CustomModule"
+             sortOrder="0" parent="CWSPS154_CustomModule::custom_module_menu" action="custom_module/index"
+             resource="CWSPS154_CustomModule::custom_module"/>
+<!--        Group 2-->
+        <add id="CWSPS154_CustomModule::custom_module_menu_dummy" title="Custom Module Menu Dummy" translate="title"
+             parent="CWSPS154_CustomModule::cwsps_menu" module="CWSPS154_CustomModule" sortOrder="20"
+             resource="CWSPS154_CustomModule::custom_module"/>
+        <add id="CWSPS154_CustomModule::custom_dummy" title="Custom Menu Dummy" translate="title" module="CWSPS154_CustomModule"
+             sortOrder="0" parent="CWSPS154_CustomModule::custom_module_menu_dummy" action="custom_module/index"
+             resource="CWSPS154_CustomModule::custom_module"/>
+    </menu>
+</config>

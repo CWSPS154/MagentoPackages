@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+  Copyright CWSPS154. All rights reserved.
+  -->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/custom-module/data/:entityId" method="GET">
+        <service class="CWSPS154\CustomModule\Api\CustomModuleRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="CWSPS154_CustomModule::custom_module" />
+        </resources>
+    </route>
+    <route url="/V1/custom-module/data/search" method="GET">
+        <service class="CWSPS154\CustomModule\Api\CustomModuleRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="CWSPS154_CustomModule::custom_module" />
+        </resources>
+    </route>
+    <route url="/V1/custom-module/data" method="POST">
+        <service class="CWSPS154\CustomModule\Api\CustomModuleRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="CWSPS154_CustomModule::custom_module_save_create" />
+        </resources>
+    </route>
+    <route url="/V1/custom-module/data/:id " method="PUT">
+        <service class="CWSPS154\CustomModule\Api\CustomModuleRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="CWSPS154_CustomModule::custom_module_save_edit" />
+        </resources>
+    </route>
+    <route url="/V1/custom-module/data/:entityId" method="DELETE">
+        <service class="CWSPS154\CustomModule\Api\CustomModuleRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="CWSPS154_CustomModule::custom_module_delete" />
+        </resources>
+    </route>
+</routes>

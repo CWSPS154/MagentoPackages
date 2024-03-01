@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="CWSPS154\CustomModule\Api\Data\CustomModuleInterface"
+                type="CWSPS154\CustomModule\Model\CustomModule"/>
+    <preference for="CWSPS154\CustomModule\Api\Data\CustomModuleSearchResultsInterface"
+                type="CWSPS154\CustomModule\Model\CustomModuleSearchResults"/>
+    <preference for="CWSPS154\CustomModule\Api\CustomModuleRepositoryInterface"
+                type="CWSPS154\CustomModule\Model\CustomModuleRepository"/>
+    <preference for="CWSPS154\CustomModule\Ui\Component\Listing\AddFilterInterface"
+                type="CWSPS154\CustomModule\Ui\Component\Listing\FulltextFilter"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="custom_module_listing_data_source" xsi:type="string">CustomModuleCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="CustomModuleCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">custom_entity_table</argument>
+            <argument name="resourceModel" xsi:type="string">CWSPS154\CustomModule\Model\ResourceModel\CustomModule</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="CWSPS154\CustomModule\Ui\Component\Listing\DataProvider">
+        <arguments>
+            <argument name="additionalFilterPool" xsi:type="array">
+                <item name="fulltext" xsi:type="object">CWSPS154\CustomModule\Ui\Component\Listing\AddFilterInterface</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

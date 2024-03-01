@@ -1,0 +1,23 @@
+# Copyright CWSPS154, Inc. All rights reserved.
+
+type Mutation {
+    createCustomModule(input: createCustomModuleInput! @doc(description: "An input object that contains the details necessary to create a custom module data.")): customModuleOutput! @doc(description: "Create a custom module data for the result .") @resolver(class: "CWSPS154\\CustomModule\\Model\\Resolver\\CreateCustomModule")
+}
+
+type Query {
+    customModule (
+        id: Int @doc(description: "The ID of the Custom Module.")
+    ): customModuleOutput @resolver(class: "CWSPS154\\CustomModule\\Model\\Resolver\\CustomModule") @doc(description: "Return details about a Custom Module Data.")
+}
+
+type customModuleOutput @doc(description: "Contains details about a specific Custom Module Data.") {
+    entity_id: Int @doc(description: "The Custom Module ID.")
+    first_name: String @doc(description: "The first name.")
+    last_name: String @doc(description: "The last name.")
+}
+
+input createCustomModuleInput @doc(description: "Defines a new custom module data.") {
+    entity_id: Int @doc(description: "The Custom Module ID.")
+    first_name: String @doc(description: "The first name.")
+    last_name: String @doc(description: "The last name.")
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">custom_module_form.custom_module_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Custom Module Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="CWSPS154\CustomModule\Block\Adminhtml\Form\SaveButton"/>
+            <button name="delete" class="CWSPS154\CustomModule\Block\Adminhtml\Form\DeleteButton"/>
+            <button name="back" class="CWSPS154\CustomModule\Block\Adminhtml\Form\BackButton"/>
+        </buttons>
+        <namespace>custom_module_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>custom_module_form.custom_module_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="custom_module_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="custom_module/index/save"/>
+        </settings>
+        <dataProvider class="CWSPS154\CustomModule\Ui\Component\Form\DataProvider" name="custom_module_form_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+        <field name="entity_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">custom_module</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>entity_id</dataScope>
+            </settings>
+        </field>
+        <field name="first_name" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">custom_module</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+<!--                    <rule name="required-entry" xsi:type="boolean">true</rule>-->
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">First Name</label>
+                <dataScope>first_name</dataScope>
+            </settings>
+        </field>
+        <field name="last_name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">custom_module</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+<!--                    <rule name="required-entry" xsi:type="boolean">true</rule>-->
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Last Name</label>
+                <dataScope>last_name</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

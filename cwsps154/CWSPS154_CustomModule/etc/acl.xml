@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="CWSPS154_CustomModule::custom_module"
+                          title="Custom Module" translate="title" sortOrder="10">
+                    <resource id="CWSPS154_CustomModule::custom_module_save"
+                              title="Custom Module Save" translate="title" sortOrder="10">
+                        <resource id="CWSPS154_CustomModule::custom_module_save_create"
+                                  title="Custom Module Create" translate="title" sortOrder="10"/>
+                        <resource id="CWSPS154_CustomModule::custom_module_save_edit"
+                                  title="Custom Module Edit" translate="title" sortOrder="20"/>
+                    </resource>
+                    <resource id="CWSPS154_CustomModule::custom_module_delete"
+                              title="Custom Module Delete" translate="title" sortOrder="20"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
