@@ -1,0 +1,47 @@
+{
+    "sales_order_report_pending_orders": {
+        "column": {
+            "entity_id": true,
+            "store_id": true,
+            "type": true,
+            "ageing": true,
+            "no_of_orders": true,
+            "value": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SALES_ORDER_REPORT_PENDING_ORDERS_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "sales_order_report_status_wise_orders": {
+        "column": {
+            "entity_id": true,
+            "store_id": true,
+            "type": true,
+            "order_status": true,
+            "no_of_orders": true,
+            "value": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SALES_ORDER_REPORT_STATUS_WISE_ORDERS_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "sales_order_report_region_wise_orders": {
+        "column": {
+            "entity_id": true,
+            "store_id": true,
+            "type": true,
+            "region": true,
+            "no_of_orders": true,
+            "value": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SALES_ORDER_REPORT_REGION_WISE_ORDERS_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

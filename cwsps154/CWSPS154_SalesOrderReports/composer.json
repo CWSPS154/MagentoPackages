@@ -1,0 +1,18 @@
+{
+    "name": "cwsps154/sales-order-reports",
+    "description": "Module For Sales Order Reports",
+    "type": "magento2-module",
+    "version": "0.0.1",
+    "require": {
+        "php": ">=8.2.0 < 8.3.0",
+        "magento/framework": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CWSPS154\\SalesOrderReports\\": ""
+        }
+    }
+}

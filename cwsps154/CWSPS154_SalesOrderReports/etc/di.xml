@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    //for order pending status report
+    <preference for="CWSPS154\SalesOrderReports\Api\Data\DashboardPendingOrderInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardPendingOrder"/>
+    <preference for="CWSPS154\SalesOrderReports\Api\DashboardPendingOrderRepositoryInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardPendingOrderRepository"/>
+    <preference for="CWSPS154\SalesOrderReports\Api\Data\DashboardPendingOrderSearchResultInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardPendingOrderSearchResult"/>
+    //for order status wise report
+    <preference for="CWSPS154\SalesOrderReports\Api\Data\DashboardOrderStatusInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardOrderStatus"/>
+    <preference for="CWSPS154\SalesOrderReports\Api\DashboardOrderStatusRepositoryInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardOrderStatusRepository"/>
+    <preference for="CWSPS154\SalesOrderReports\Api\Data\DashboardOrderStatusSearchResultInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardOrderStatusSearchResult"/>
+    //for order region wise report
+    <preference for="CWSPS154\SalesOrderReports\Api\Data\DashboardOrderRegionInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardOrderRegion"/>
+    <preference for="CWSPS154\SalesOrderReports\Api\DashboardOrderRegionRepositoryInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardOrderRegionRepository"/>
+    <preference for="CWSPS154\SalesOrderReports\Api\Data\DashboardOrderRegionSearchResultInterface"
+                type="CWSPS154\SalesOrderReports\Model\DashboardOrderRegionSearchResult"/>
+</config>

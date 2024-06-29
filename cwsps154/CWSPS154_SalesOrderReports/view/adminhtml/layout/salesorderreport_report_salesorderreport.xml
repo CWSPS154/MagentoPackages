@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.main.actions">
+            <block class="Magento\Backend\Block\Store\Switcher" name="store_switcher" as="store_switcher"
+                   template="Magento_Backend::store/switcher.phtml">
+                <action method="setUseConfirm">
+                    <argument name="params" xsi:type="string">0</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="CWSPS154\SalesOrderReports\Block\Adminhtml\Report\PendingOrderReportGrid"
+                   name="pending_order_report"
+                   template="CWSPS154_SalesOrderReports::dashboard/pending_order_report.phtml"/>
+            <block class="CWSPS154\SalesOrderReports\Block\Adminhtml\Report\OrderStatusReportGrid"
+                   name="status_order_report"
+                   template="CWSPS154_SalesOrderReports::dashboard/status_order_report.phtml"/>
+            <block class="CWSPS154\SalesOrderReports\Block\Adminhtml\Report\OrderRegionReportGrid"
+                   name="region_order_report"
+                   template="CWSPS154_SalesOrderReports::dashboard/region_order_report.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,129 @@
+<?php
+
+use CWSPS154\SalesOrderReports\Block\Adminhtml\Report\OrderRegionReportGrid;
+use CWSPS154\SalesOrderReports\Model\Report\AbstractDashboardOrder;
+
+/** @var OrderRegionReportGrid $this */
+$orderRegion = $this->getOrderDetails();
+?>
+<div class="admin__data-grid-wrap" data-role="grid-wrapper">
+    <table class="data-grid data-grid-draggable" data-role="grid">
+        <thead>
+        <tr>
+            <th class="data-grid-th" rowspan="2"><?= /* @noEscape */
+                __('Region') ?></th>
+            <?php foreach (array_keys(AbstractDashboardOrder::TYPES) as $type) { ?>
+                <th class="data-grid-th" colspan="2"><?= /* @noEscape */
+                    __($type) ?></th>
+            <?php } ?>
+            <th class="data-grid-th" rowspan="2"><?= /* @noEscape */
+                __('Total Order') ?></th>
+            <th class="data-grid-th" rowspan="2"><?= /* @noEscape */
+                __('Total Value') ?></th>
+        </tr>
+        <tr>
+            <th class="data-grid-th"><?= /* @noEscape */
+                __('No of orders') ?></th>
+            <th class="data-grid-th"><?= /* @noEscape */
+                __('Value') ?></th>
+            <th class="data-grid-th"><?= /* @noEscape */
+                __('No of orders') ?></th>
+            <th class="data-grid-th"><?= /* @noEscape */
+                __('Value') ?></th>
+            <th class="data-grid-th"><?= /* @noEscape */
+                __('No of orders') ?></th>
+            <th class="data-grid-th"><?= /* @noEscape */
+                __('Value') ?></th>
+            <th class="data-grid-th"><?= /* @noEscape */
+                __('No of orders') ?></th>
+            <th class="data-grid-th"><?= /* @noEscape */
+                __('Value') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $grandTotals = [];
+        $grandTotalSum = 0;
+        $grandTotalOrder = 0; ?>
+        <?php if (!empty($orderRegion)) {
+            $i = 0;
+            foreach ($orderRegion as $key => $order) { $i++;?>
+                <tr class="data-row <?php if($i%2 == 0) { echo '_odd-row';} ?>">
+                    <td><?= /* @noEscape */
+                        $key ?></td>
+                    <?php $totalNoOfOrders = 0;
+                    $totalValue = 0;
+                    $totalOrder = 0; ?>
+                    <?php foreach ($order as $orderItem) { ?>
+                        <?php
+                        $type = $orderItem->getType();
+                        $noOfOrders = $orderItem->getNoOfOrders();
+                        $value = $orderItem->getValue();
+                        if (!isset($grandTotals[$type])) {
+                            $grandTotals[$type]['no_of_orders'] = 0;
+                            $grandTotals[$type]['value'] = 0;
+                        }
+                        $grandTotals[$type]['no_of_orders'] += $noOfOrders;
+                        $grandTotals[$type]['value'] += $value;
+
+                        $totalNoOfOrders += $noOfOrders;
+                        $totalValue += $value;
+                        $totalOrder += $noOfOrders;
+                        ?>
+                        <td><?= /* @noEscape */
+                            $noOfOrders ?></td>
+                        <td><?= /* @noEscape */
+                            $value ?></td>
+                    <?php } ?>
+                    <td><?= /* @noEscape */
+                        $totalOrder ?></td>
+                    <?php $grandTotalOrder += $totalOrder; ?>
+                    <td><?= /* @noEscape */
+                        $totalValue ?></td>
+                    <?php $grandTotalSum += $totalValue; ?>
+                </tr>
+            <?php } ?>
+            <tr class="data-row">
+                <th class="data-grid-th"><?= /* @noEscape */
+                    __('Grand Total') ?></th>
+                <?php foreach ($grandTotals as $grandTotal) { ?>
+                    <th class="data-grid-th"><?= /* @noEscape */
+                        $grandTotal['no_of_orders']; ?></th>
+                    <th class="data-grid-th"><?= /* @noEscape */
+                        $grandTotal['value']; ?></th>
+                <?php } ?>
+                <th class="data-grid-th"><?= /* @noEscape */
+                    $grandTotalOrder ?></th>
+                <th class="data-grid-th"><?= /* @noEscape */
+                    $grandTotalSum ?></th>
+            </tr>
+        <?php } else { ?>
+            <tr>
+                <td colspan="12"><?= /* @noEscape */
+                    __('Please switch the scope to store base view') ?></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    require(['jquery'], function ($) {
+        $('#order-csv').on('click', function () {
+            let currentUrl = window.location.href;
+            let storeIndex = currentUrl.indexOf('/store/');
+            if (storeIndex !== -1) {
+                let storeId = currentUrl.substring(storeIndex + 7).split('/')[0];
+                let downloadUrl = '<?= $this->getUrl('salesorder_report/dashboard/regionorderreportcsv') ?>';
+                if (storeId) {
+                    downloadUrl += 'store/' + encodeURIComponent(storeId);
+                    window.location.href = downloadUrl;
+                }
+            } else {
+                console.error('Store ID not found in the URL.');
+            }
+        });
+    });
+</script>
+
+
+
+
