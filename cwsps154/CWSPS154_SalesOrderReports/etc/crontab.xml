@@ -1,8 +1,13 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
-<group id="default">
-    <job name="cwsps_sales_order_dashboard_cron" instance="CWSPS154\SalesOrderReports\Cron\UpdateOrderDetails" method="execute">
-        <config_path>cwsps_salesorder_dashboard/general/cron_schedule</config_path>
-    </job>
-</group>
+<!--
+  Copyright CWSPS154. All rights reserved.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="cwsps_sales_order_dashboard_cron" instance="CWSPS154\SalesOrderReports\Cron\UpdateOrderDetails"
+             method="execute">
+            <config_path>cwsps_salesorder_dashboard/general/cron_schedule</config_path>
+        </job>
+    </group>
 </config>

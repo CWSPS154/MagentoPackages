@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace CWSPS154\SalesOrderReports\Model\Report;
 
@@ -184,8 +189,8 @@ class OrderRegionReport extends AbstractDashboardOrder
                             'store_id' => $data['store_id'],
                             'type' => $data['type'],
                             'region' => $data['region'],
-                            'no_of_orders' => $data['order_count'],
-                            'value' => $data['grand_total']
+                            'no_of_orders' => (int)$data['order_count'],
+                            'value' => (float)$data['grand_total']
                         ];
                     }
                 }

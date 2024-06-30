@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace CWSPS154\SalesOrderReports\Model;
 
@@ -95,7 +100,7 @@ class DashboardOrderStatus extends AbstractModel implements DashboardOrderStatus
      */
     public function getNoOfOrders(): int
     {
-        return $this->_getData(self::NO_OF_ORDERS);
+        return (int)$this->_getData(self::NO_OF_ORDERS);
     }
 
     /**
@@ -113,7 +118,7 @@ class DashboardOrderStatus extends AbstractModel implements DashboardOrderStatus
      */
     public function getValue(): float
     {
-        return $this->_getData(self::VALUE);
+        return (float)$this->_getData(self::VALUE);
     }
 
     /**

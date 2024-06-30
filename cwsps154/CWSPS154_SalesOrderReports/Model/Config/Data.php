@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace CWSPS154\SalesOrderReports\Model\Config;
 
@@ -30,7 +35,7 @@ class Data
      */
     public function isEnable(int $storeId = null): ?bool
     {
-        return $this->storeConfig->getValue(
+        return (bool)$this->storeConfig->getValue(
             self::CONFIG_BASE_PATH.'/enable',
             ScopeInterface::SCOPE_STORE,
             $storeId ?? $this->storeManager->getStore()->getId()

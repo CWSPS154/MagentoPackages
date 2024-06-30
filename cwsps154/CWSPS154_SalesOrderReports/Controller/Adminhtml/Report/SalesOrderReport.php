@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace CWSPS154\SalesOrderReports\Controller\Adminhtml\Report;
 
@@ -14,6 +19,11 @@ use Magento\Framework\View\Result\Page;
 
 class SalesOrderReport extends Action implements HttpGetActionInterface
 {
+    /**
+     * Authorization level of a basic admin session
+     */
+    public const ADMIN_RESOURCE = 'CWSPS154_SalesOrderReports::sales_order_reports';
+
     /**
      * @var string
      */
@@ -36,12 +46,12 @@ class SalesOrderReport extends Action implements HttpGetActionInterface
      */
     public function execute()
     {
-        $storeId = $this->getRequest()->getParam('store');
+        $storeId = (int)$this->getRequest()->getParam('store');
         if ($this->data->isEnable($storeId)) {
             /** @var Page $resultPage */
             $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
             $resultPage->getConfig()->getTitle()->prepend(__($this->pageTitle));
-            $resultPage->setActiveMenu('CWSPS154::parent');
+            $resultPage->setActiveMenu('CWSPS154_CustomModule::cwsps_menu');
             $resultPage->addBreadcrumb(__('CWSPS154'), __('CWSPS154'));
             $resultPage->addBreadcrumb(__('Report'), __('Report'));
             return $resultPage;
@@ -49,6 +59,6 @@ class SalesOrderReport extends Action implements HttpGetActionInterface
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $this->messageManager->addErrorMessage(__('This feature is disabled for the current store'));
-        return $resultRedirect->setPath('*/*/*');
+        return $resultRedirect->setPath('admin/*/*');
     }
 }

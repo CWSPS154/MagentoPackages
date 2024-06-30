@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace CWSPS154\SalesOrderReports\Model;
 
@@ -96,7 +101,7 @@ class DashboardOrderRegion extends AbstractModel implements DashboardOrderRegion
      */
     public function getNoOfOrders(): int
     {
-        return $this->_getData(self::NO_OF_ORDERS);
+        return (int)$this->_getData(self::NO_OF_ORDERS);
     }
 
     /**
@@ -114,7 +119,7 @@ class DashboardOrderRegion extends AbstractModel implements DashboardOrderRegion
      */
     public function getValue(): float
     {
-        return $this->_getData(self::VALUE);
+        return (float)$this->_getData(self::VALUE);
     }
 
     /**

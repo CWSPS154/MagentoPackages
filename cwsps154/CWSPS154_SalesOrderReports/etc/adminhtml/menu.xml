@@ -1,7 +1,16 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/menu.xsd">
+<!--
+  Copyright CWSPS154. All rights reserved.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/menu.xsd">
     <menu>
-        <add id="CWSPS154_SalesOrderReports::report" title="Reports" module="CWSPS154_SalesOrderReports" sortOrder="20" parent="CWSPS154_CustomModule::cwsps_menu" resource="CWSPS154_SalesOrderReports::main_menu" dependsOnConfig="cwsps_salesorder_dashboard/general/enable"/>
-        <add id="CWSPS154_SalesOrderReports::sales_order_reports" title="Sales Order Reports" module="CWSPS154_SalesOrderReports" sortOrder="30" parent="CWSPS154_SalesOrderReports::report" action="salesorderreport/report/salesorderreport" resource="CWSPS154_SalesOrderReports::sales_order_reports"/>
+        <add id="CWSPS154_SalesOrderReports::report" title="Reports" module="CWSPS154_SalesOrderReports" sortOrder="20"
+             parent="CWSPS154_CustomModule::cwsps_menu" resource="CWSPS154_SalesOrderReports::main_menu"
+             dependsOnConfig="cwsps_salesorder_dashboard/general/enable"/>
+        <add id="CWSPS154_SalesOrderReports::sales_order_reports" title="Sales Order Reports"
+             module="CWSPS154_SalesOrderReports" sortOrder="30" parent="CWSPS154_SalesOrderReports::report"
+             action="salesorderreport/report/salesorderreport"
+             resource="CWSPS154_SalesOrderReports::sales_order_reports"/>
     </menu>
 </config>

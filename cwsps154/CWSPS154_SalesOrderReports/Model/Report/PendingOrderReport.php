@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace CWSPS154\SalesOrderReports\Model\Report;
 
@@ -107,8 +112,8 @@ class PendingOrderReport extends AbstractDashboardOrder
                                 'store_id' => $storeId,
                                 'type' => $type,
                                 'ageing' => $ageing,
-                                'no_of_orders' => $detail['order_count'],
-                                'value' => $detail['grand_total']
+                                'no_of_orders' => (int)$detail['order_count'],
+                                'value' => (float)$detail['grand_total']
                             ];
                         }
                     }

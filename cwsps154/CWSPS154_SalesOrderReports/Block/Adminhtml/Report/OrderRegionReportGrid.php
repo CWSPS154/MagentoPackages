@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace CWSPS154\SalesOrderReports\Block\Adminhtml\Report;
 
@@ -29,7 +34,7 @@ class OrderRegionReportGrid extends Template
      */
     public function getOrderDetails(): array
     {
-        $storeId = $this->getRequest()->getParam('store', 0);
+        $storeId = (int)$this->getRequest()->getParam('store', 0);
         $data = [];
         try {
             $result = $this->orderRegionReport->getOrderDetails($storeId);
@@ -37,6 +42,7 @@ class OrderRegionReportGrid extends Template
                 $data[$item->getRegion()][$item->getType()] = $item;
             }
         } catch (LocalizedException $e) {
+            $this->_logger->critical($e->getMessage());
         }
         return $data;
     }

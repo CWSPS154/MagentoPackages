@@ -1,4 +1,10 @@
 <?php
+/**
+ * Copyright CWSPS154. All rights reserved.
+ */
+
+declare(strict_types=1);
+
 namespace CWSPS154\SalesOrderReports\Model;
 
 use CWSPS154\SalesOrderReports\Api\Data\DashboardPendingOrderInterface;
@@ -80,7 +86,7 @@ class DashboardPendingOrder extends AbstractModel implements DashboardPendingOrd
      */
     public function getNoOfOrders(): int
     {
-        return $this->_getData(self::NO_OF_ORDERS);
+        return (int)$this->_getData(self::NO_OF_ORDERS);
     }
 
     /**
@@ -98,7 +104,7 @@ class DashboardPendingOrder extends AbstractModel implements DashboardPendingOrd
      */
     public function getValue(): float
     {
-        return $this->_getData(self::VALUE);
+        return (float)$this->_getData(self::VALUE);
     }
 
     /**
