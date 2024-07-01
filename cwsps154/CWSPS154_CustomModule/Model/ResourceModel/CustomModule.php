@@ -57,13 +57,13 @@ class CustomModule extends AbstractDb
         return parent::_beforeSave($object);
     }
 
-//    /**
-//     * Template method to return validate rules to be executed before entity is saved
-//     *
-//     * @return null
-//     */
-//    public function getValidationRulesBeforeSave()
-//    {
-//        return false;
-//    }
+    /**
+     * Template method to return validate rules to be executed before entity is saved
+     *
+     * @return null
+     */
+    public function getValidationRulesBeforeSave()
+    {
+        return false;
+    }
 }
