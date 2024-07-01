@@ -1,9 +1,9 @@
 # Custom Sales Order Report Based On Configuration For Study Purpose
 ## Configuration Page
-![LOGO](/cwsps154/CWSPS154_SalesOrderReports/screenshots/ConfigurationPage.png)
+![ConfigurationPage](/cwsps154/CWSPS154_SalesOrderReports/screenshots/ConfigurationPage.png)
 ## Menu
-![LOGO](/cwsps154/CWSPS154_SalesOrderReports/screenshots/Menu.png)
+![Menu](/cwsps154/CWSPS154_SalesOrderReports/screenshots/Menu.png)
 ## Sales Order Reports
-![LOGO](/cwsps154/CWSPS154_SalesOrderReports/screenshots/SalesOrderReports.png)
+![SalesOrderReports](/cwsps154/CWSPS154_SalesOrderReports/screenshots/SalesOrderReports.png)
 ## Dashboard Report
-![LOGO](/cwsps154/CWSPS154_SalesOrderReports/screenshots/DashboardReport.png)
+![DashboardReport](/cwsps154/CWSPS154_SalesOrderReports/screenshots/DashboardReport.png)
