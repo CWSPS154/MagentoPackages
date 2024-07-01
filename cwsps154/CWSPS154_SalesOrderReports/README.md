@@ -1,9 +1,9 @@
 # Custom Sales Order Report Based On Configuration For Study Purpose
 ## Configuration Page
-![ConfigPage](/screenshots/ConfigurationPage.png)
+![LOGO](/screenshots/ConfigurationPage.png)
 ## Menu
-![Menu](/screenshots/Menu.png)
+![LOGO](/screenshots/Menu.png)
 ## Sales Order Reports
-![SalesOrderReports](/screenshots/SalesOrderReports.png)
+![LOGO](/screenshots/SalesOrderReports.png)
 ## Dashboard Report
-![DashboardReport](/screenshots/DashboardReport.png)
+![LOGO](/screenshots/DashboardReport.png)
