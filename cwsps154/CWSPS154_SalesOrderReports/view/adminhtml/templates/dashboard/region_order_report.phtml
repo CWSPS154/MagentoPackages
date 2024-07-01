@@ -105,24 +105,6 @@ $orderRegion = $this->getOrderDetails();
         </tbody>
     </table>
 </div>
-<script type="text/javascript">
-    require(['jquery'], function ($) {
-        $('#order-csv').on('click', function () {
-            let currentUrl = window.location.href;
-            let storeIndex = currentUrl.indexOf('/store/');
-            if (storeIndex !== -1) {
-                let storeId = currentUrl.substring(storeIndex + 7).split('/')[0];
-                let downloadUrl = '<?= $this->getUrl('salesorder_report/dashboard/regionorderreportcsv') ?>';
-                if (storeId) {
-                    downloadUrl += 'store/' + encodeURIComponent(storeId);
-                    window.location.href = downloadUrl;
-                }
-            } else {
-                console.error('Store ID not found in the URL.');
-            }
-        });
-    });
-</script>
 
 
 

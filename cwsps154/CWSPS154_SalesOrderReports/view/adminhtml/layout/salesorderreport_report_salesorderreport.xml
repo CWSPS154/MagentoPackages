@@ -12,6 +12,8 @@
                     <argument name="params" xsi:type="string">0</argument>
                 </action>
             </block>
+            <block class="Magento\Framework\View\Element\Template" name="download.pdf.button"
+                   template="CWSPS154_SalesOrderReports::dashboard/download_pdf.phtml" after="-"/>
         </referenceContainer>
         <referenceContainer name="content">
             <block class="CWSPS154\SalesOrderReports\Block\Adminhtml\Report\PendingOrderReportGrid"

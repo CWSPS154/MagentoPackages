@@ -56,12 +56,8 @@ class OrderStatusReport extends AbstractDashboardOrder
      * @param int $storeId
      * @return Collection
      */
-    public function getCollection(
-        string       $fromDate,
-        string       $toDate,
-        array|string $status = "pending",
-        int          $storeId = 0
-    ): Collection {
+    public function getCollection(string $fromDate, string $toDate, array|string $status = "pending", int $storeId = 0): Collection
+    {
         return $this->orderCollectionFactory->create()
             ->addFieldToFilter('status', $status)
             ->addFieldToFilter('created_at', ['from' => $fromDate, 'to' => $toDate])

@@ -1,0 +1,11 @@
+<?php $storeId = $this->getRequest()->getParam('store');
+if ($storeId) { ?>
+    <div class="page-actions-buttons">
+        <button type="button"
+                onclick="setLocation('<?php echo $this->getUrl('salesorderreport/report/generatepdffile', ['store' => $storeId]); ?>')"
+                class="action- scalable primary">
+            <?php /* Here, 'button' is the class used for Magento buttons */ ?>
+            <span><?php echo __('Download PDF'); ?></span>
+        </button>
+    </div>
+<?php } ?>
