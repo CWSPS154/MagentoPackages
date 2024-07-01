@@ -17,14 +17,11 @@
         </referenceContainer>
         <referenceContainer name="content">
             <block class="CWSPS154\SalesOrderReports\Block\Adminhtml\Report\PendingOrderReportGrid"
-                   name="pending_order_report"
-                   template="CWSPS154_SalesOrderReports::dashboard/pending_order_report.phtml"/>
+                   name="pending_order_report"/>
             <block class="CWSPS154\SalesOrderReports\Block\Adminhtml\Report\OrderStatusReportGrid"
-                   name="status_order_report"
-                   template="CWSPS154_SalesOrderReports::dashboard/status_order_report.phtml"/>
+                   name="status_order_report"/>
             <block class="CWSPS154\SalesOrderReports\Block\Adminhtml\Report\OrderRegionReportGrid"
-                   name="region_order_report"
-                   template="CWSPS154_SalesOrderReports::dashboard/region_order_report.phtml"/>
+                   name="region_order_report"/>
         </referenceContainer>
     </body>
 </page>

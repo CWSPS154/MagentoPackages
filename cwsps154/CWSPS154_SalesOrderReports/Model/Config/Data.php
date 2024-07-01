@@ -81,4 +81,20 @@ class Data
         }
         return [];
     }
+
+    /**
+     * get this feature show in dashboard enable or not
+     *
+     * @param int|null $storeId
+     * @return bool|null
+     * @throws NoSuchEntityException
+     */
+    public function showInDashboard(int $storeId = null): ?bool
+    {
+        return (bool)$this->storeConfig->getValue(
+            self::CONFIG_BASE_PATH.'/show_in_dashboard',
+            ScopeInterface::SCOPE_STORE,
+            $storeId ?? $this->storeManager->getStore()->getId()
+        );
+    }
 }

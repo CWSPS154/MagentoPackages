@@ -9,6 +9,11 @@ $orderRegion = $this->getOrderDetails();
 <div class="admin__data-grid-wrap" data-role="grid-wrapper">
     <table class="data-grid data-grid-draggable" data-role="grid">
         <thead>
+        <tr class="data-row">
+            <th class="data-grid-th center" colspan="12">
+                <?= /* @noEscape */ __('Region Wise Order Report') ?>
+            </th>
+        </tr>
         <tr>
             <th class="data-grid-th" rowspan="2"><?= /* @noEscape */
                 __('Region') ?></th>
@@ -97,8 +102,8 @@ $orderRegion = $this->getOrderDetails();
                     $grandTotalSum ?></th>
             </tr>
         <?php } else { ?>
-            <tr>
-                <td colspan="12"><?= /* @noEscape */
+            <tr class="data-row">
+                <td colspan="12" class="center"><?= /* @noEscape */
                     __('Please switch the scope to store base view') ?></td>
             </tr>
         <?php } ?>

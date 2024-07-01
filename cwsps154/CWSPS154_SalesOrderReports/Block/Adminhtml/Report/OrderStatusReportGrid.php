@@ -15,6 +15,13 @@ use Magento\Framework\View\Element\Template;
 class OrderStatusReportGrid extends Template
 {
     /**
+     * Path to template file in theme.
+     *
+     * @var string
+     */
+    protected $_template = "CWSPS154_SalesOrderReports::dashboard/status_order_report.phtml";
+
+    /**
      * @param Context $context
      * @param OrderStatusReport $orderStatusReport
      * @param array $data

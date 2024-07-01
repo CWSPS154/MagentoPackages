@@ -40,20 +40,17 @@ class GeneratePdfFile extends Action implements HttpGetActionInterface
     {
         $content = $this->_view->getLayout()
             ->createBlock(PendingOrderReportGrid::class)
-            ->setTemplate('CWSPS154_SalesOrderReports::dashboard/pending_order_report.phtml')
             ->toHtml();
         $content .= $this->_view->getLayout()
             ->createBlock(OrderStatusReportGrid::class)
-            ->setTemplate('CWSPS154_SalesOrderReports::dashboard/status_order_report.phtml')
             ->toHtml();
         $content .= $this->_view->getLayout()
             ->createBlock(OrderRegionReportGrid::class)
-            ->setTemplate('CWSPS154_SalesOrderReports::dashboard/region_order_report.phtml')
             ->toHtml();
 
         $dompdf = new Dompdf();
         $dompdf->loadHtml($content);
-        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
         $content = $dompdf->output();
 

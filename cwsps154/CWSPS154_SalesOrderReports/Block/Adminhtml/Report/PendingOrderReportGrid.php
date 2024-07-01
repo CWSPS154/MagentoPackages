@@ -14,6 +14,13 @@ use Magento\Framework\View\Element\Template;
 class PendingOrderReportGrid extends Template
 {
     /**
+     * Path to template file in theme.
+     *
+     * @var string
+     */
+    protected $_template = "CWSPS154_SalesOrderReports::dashboard/pending_order_report.phtml";
+
+    /**
      * @param Context $context
      * @param PendingOrderReport $pendingOrderReport
      * @param array $data

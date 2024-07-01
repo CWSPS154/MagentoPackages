@@ -15,6 +15,13 @@ use Magento\Framework\View\Element\Template;
 class OrderRegionReportGrid extends Template
 {
     /**
+     * Path to template file in theme.
+     *
+     * @var string
+     */
+    protected $_template = "CWSPS154_SalesOrderReports::dashboard/region_order_report.phtml";
+
+    /**
      * @param Context $context
      * @param OrderRegionReport $orderRegionReport
      * @param array $data
