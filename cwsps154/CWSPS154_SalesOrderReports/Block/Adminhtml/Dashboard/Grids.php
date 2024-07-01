@@ -47,18 +47,20 @@ class Grids extends \Magento\Backend\Block\Dashboard\Grids
     {
         parent::_prepareLayout();
         $storeId = (int)$this->getRequest()->getParam('store');
-        if ($this->configData->showInDashboard($storeId)) {
-            $content = $this->getLayout()->createBlock(PendingOrderReportGrid::class)->toHtml();
-            $content .= $this->getLayout()->createBlock(OrderStatusReportGrid::class)->toHtml();
-            $content .= $this->getLayout()->createBlock(OrderRegionReportGrid::class)->toHtml();
-            $this->addTab(
-                'sales_order_reports',
-                [
-                    'label' => __('Order Reports'),
-                    'content' => $content,
-                    'class' => 'ajax'
-                ]
-            );
+        if ($this->configData->isEnable($storeId)) {
+            if ($this->configData->showInDashboard($storeId)) {
+                $content = $this->getLayout()->createBlock(PendingOrderReportGrid::class)->toHtml();
+                $content .= $this->getLayout()->createBlock(OrderStatusReportGrid::class)->toHtml();
+                $content .= $this->getLayout()->createBlock(OrderRegionReportGrid::class)->toHtml();
+                $this->addTab(
+                    'sales_order_reports',
+                    [
+                        'label' => __('Order Reports'),
+                        'content' => $content,
+                        'class' => 'ajax'
+                    ]
+                );
+            }
         }
         return $this;
     }
