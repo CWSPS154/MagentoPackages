@@ -160,13 +160,13 @@ $pendingOrders = $this->getOrderDetails();
                         <td><?= /* @noEscape */
                             $noOfOrders ?></td>
                         <td><?= /* @noEscape */
-                            $value ?></td>
+                            $this->getFormattedPriceByStore($value) ?></td>
                     <?php } ?>
                     <td><?= /* @noEscape */
                         $totalOrder ?></td>
                     <?php $grandTotalOrder += $totalOrder; ?>
                     <td><?= /* @noEscape */
-                        $totalValue ?></td>
+                        $this->getFormattedPriceByStore($totalValue) ?></td>
                     <?php $grandTotalSum += $totalValue; ?>
                 </tr>
             <?php } ?>
@@ -177,12 +177,12 @@ $pendingOrders = $this->getOrderDetails();
                     <th class="data-grid-th"><?= /* @noEscape */
                         $grandTotal['no_of_orders']; ?></th>
                     <th class="data-grid-th"><?= /* @noEscape */
-                        $grandTotal['value']; ?></th>
+                        $this->getFormattedPriceByStore($grandTotal['value']); ?></th>
                 <?php } ?>
                 <th class="data-grid-th"><?= /* @noEscape */
                     $grandTotalOrder ?></th>
                 <th class="data-grid-th"><?= /* @noEscape */
-                    $grandTotalSum ?></th>
+                    $this->getFormattedPriceByStore($grandTotalSum) ?></th>
             </tr>
         <?php } else { ?>
             <tr class="data-row">

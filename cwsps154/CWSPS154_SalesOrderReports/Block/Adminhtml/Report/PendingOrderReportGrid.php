@@ -9,6 +9,7 @@ namespace CWSPS154\SalesOrderReports\Block\Adminhtml\Report;
 
 use CWSPS154\SalesOrderReports\Model\Report\PendingOrderReport;
 use Magento\Backend\Block\Template\Context;
+use Magento\Framework\Pricing\Helper\Data as PricingHelper;
 use Magento\Framework\View\Element\Template;
 
 class PendingOrderReportGrid extends Template
@@ -23,11 +24,13 @@ class PendingOrderReportGrid extends Template
     /**
      * @param Context $context
      * @param PendingOrderReport $pendingOrderReport
+     * @param PricingHelper $pricingHelper
      * @param array $data
      */
     public function __construct(
         public readonly Context            $context,
         public readonly PendingOrderReport $pendingOrderReport,
+        protected readonly PricingHelper   $pricingHelper,
         array                              $data = []
     ) {
         parent::__construct($context, $data);
@@ -47,5 +50,17 @@ class PendingOrderReportGrid extends Template
             $data[PendingOrderReport::AGEING_GROUP[$item->getAgeing()]][] = $item;
         }
         return $data;
+    }
+
+    /**
+     * Convert and format price value for specified store
+     *
+     * @param float $price
+     * @return float|string
+     */
+    public function getFormattedPriceByStore(float $price)
+    {
+        $storeId = (int)$this->getRequest()->getParam('store', 0);
+        return $this->pricingHelper->currencyByStore($price, $storeId, true, false);
     }
 }

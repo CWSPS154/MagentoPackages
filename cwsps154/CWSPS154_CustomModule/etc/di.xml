@@ -36,4 +36,11 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\ImportExport\Model\Import\SampleFileProvider">
+        <arguments>
+            <argument name="samples" xsi:type="array">
+                <item name="custom_module" xsi:type="string">CWSPS154_CustomModule</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

@@ -10,6 +10,7 @@ namespace CWSPS154\SalesOrderReports\Block\Adminhtml\Report;
 use CWSPS154\SalesOrderReports\Model\Report\OrderStatusReport;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Pricing\Helper\Data as PricingHelper;
 use Magento\Framework\View\Element\Template;
 
 class OrderStatusReportGrid extends Template
@@ -24,11 +25,13 @@ class OrderStatusReportGrid extends Template
     /**
      * @param Context $context
      * @param OrderStatusReport $orderStatusReport
+     * @param PricingHelper $pricingHelper
      * @param array $data
      */
     public function __construct(
         public readonly Context           $context,
         public readonly OrderStatusReport $orderStatusReport,
+        protected readonly PricingHelper  $pricingHelper,
         array                             $data = []
     ) {
         parent::__construct($context, $data);
@@ -52,5 +55,17 @@ class OrderStatusReportGrid extends Template
             $this->_logger->critical($e->getMessage());
         }
         return $data;
+    }
+
+    /**
+     * Convert and format price value for specified store
+     *
+     * @param float $price
+     * @return float|string
+     */
+    public function getFormattedPriceByStore(float $price)
+    {
+        $storeId = (int)$this->getRequest()->getParam('store', 0);
+        return $this->pricingHelper->currencyByStore($price, $storeId, true, false);
     }
 }

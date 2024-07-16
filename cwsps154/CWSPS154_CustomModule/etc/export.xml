@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!--
+  Copyright CWSPS154. All rights reserved.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_ImportExport:etc/export.xsd">
+    <entity name="custom_module" label="Custom Module" model="CWSPS154\CustomModule\Model\Export\CustomModule" entityAttributeFilterType="custom_module"/>
+</config>
